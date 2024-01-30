@@ -1,42 +1,35 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+.App{ 
+  min-height: 100vh; 
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%); 
+  } 
+  .search-form{ 
+  min-height: 10vh; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  } 
+  .search-bar{ 
+  width: 50%; 
+  border:none; 
+  padding: 10px; 
+  border-radius: 5px; 
+  box-shadow: 5px 10px #979b91; 
+  } 
+  .search-button{ 
+  background: #4da1ab; 
+  border: 5px solid white; 
+  border-radius: 8px; 
+  padding: 10px 20px; 
+  color: white; 
+  font-size: larger; 
+  margin: 0 0 0 10px; 
+  } 
+  .search-button:hover { 
+  background-color:#fa709a ; 
+  } 
+  .recipes{ 
+  display: flex; 
+  justify-content: space-around; 
+  flex-wrap: wrap; 
+  } 
+  
