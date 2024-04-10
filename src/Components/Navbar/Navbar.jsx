@@ -1,6 +1,7 @@
+import './Navbar.css'
 const Navbar = () =>{
-  return <nav class="navbar">
-  <div class="nav-content">
+  return <nav className="navbar">
+  <div className="nav-content">
     <h1>Yummy</h1>
     <ul>
       <li>
@@ -16,7 +17,7 @@ const Navbar = () =>{
         <a href="#favorite">Favorites</a>
       </li>
     </ul>
-    <button>Join us</button>
+    <button>Add Recipe</button>
   </div>
 </nav>;
 }

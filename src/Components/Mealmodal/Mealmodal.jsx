@@ -1,17 +1,17 @@
 const Mealmodal = () => {
   return (
-    <div id="mealModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 class="mealName"></h2>
-        <div class="imgingredientsme">
-          <img class="mealImage" src="" alt="Meal Thumbnail" />
-          <div class="ingredientsmeasurement">
-            <div class="ingredients"></div>
-            <div class="measurements"></div>
+    <div id="mealModal" className="modal">
+      <div className="modal-content">
+        <span className="close">&times;</span>
+        <h2 className="mealName"></h2>
+        <div className="imgingredientsme">
+          <img className="mealImage" src="" alt="Meal Thumbnail" />
+          <div className="ingredientsmeasurement">
+            <div className="ingredients"></div>
+            <div className="measurements"></div>
           </div>
         </div>
-        <div class="mealInstructions"></div>
+        <div className="mealInstructions"></div>
       </div>
     </div>
   );

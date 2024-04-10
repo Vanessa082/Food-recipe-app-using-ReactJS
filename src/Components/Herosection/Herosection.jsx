@@ -1,16 +1,16 @@
 const Herosection = () => {
   return (
     <div id="hero-section">
-      <div class="content-holder">
-        <div class="col1">
+      <div className="content-holder">
+        <div className="col1">
           <h1>It's Not Just Cooking, It's an Experience</h1>
 
-          <div class="search">
-            <button class="searchbtn">Search</button>
+          <div className="search">
+            <button className="searchbtn">Search</button>
           </div>
         </div>
 
-        <section class="col2">
+        <section className="col2">
           <img
             src="./assets/images/bg.jpg"
             alt="hero image"
@@ -19,17 +19,17 @@ const Herosection = () => {
           />
         </section>
       </div>
-      <div class="overlay">
-        <div class="searchbar">
+      <div className="overlay">
+        <div className="searchbar">
           <input
             type="text"
-            class="searchInput"
+            className="searchInput"
             placeholder="Search recipes..."
           />
-          <ul id="recipeList" class="search-result"></ul>
+          <ul id="recipeList" className="search-result"></ul>
         </div>
 
-        <button class="closeButton">close</button>
+        <button className="closeButton">close</button>
       </div>
     </div>
   );
