@@ -6,6 +6,7 @@ import Favorite from "./Components/Favorite/Favorite";
 import Category from "./Components/Category/Category";
 import Contactus from "./Components/Contactus/Contactus";
 import Footer from "./Components/Footer/Footer";
+import Mealmodal from "./Components/Mealmodal/Mealmodal";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <div>
         <Navbar />
         <Herosection />
+        <Mealmodal />
         {/* <Favorite /> */}
         <Category />
         <Contactus />

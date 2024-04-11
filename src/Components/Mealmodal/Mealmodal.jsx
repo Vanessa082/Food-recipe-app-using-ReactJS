@@ -1,3 +1,5 @@
+import "./Mealmodal.css";
+
 const Mealmodal = () => {
   return (
     <div id="mealModal" className="modal">
@@ -16,3 +18,5 @@ const Mealmodal = () => {
     </div>
   );
 };
+
+export default Mealmodal;
