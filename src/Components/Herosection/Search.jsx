@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export function Search({ setShowSearch }) {
   const [recipes, setSearchRecipe] = useState([]);
+  const [selectedRecipe, setSelectedRecipe] = useState(null)
 
   const getRecipe = async (searchInput) => {
     const response = await fetch(
@@ -16,11 +17,19 @@ export function Search({ setShowSearch }) {
     );
     const data = await response.json();
     const recipe = data.meals[0];
-    // strMeal.textContent = recipe.strMeal;
-    // strMealThumb.src = recipe.strMealThumb;
-    // displayIngredientsMeasurements(data);
-    // mealInstructions.textContent = recipe.strInstructions;
+    
+    selectedRecipe(recipe)
   };
+
+  const displayIngredientsMeasurements = () => {
+      if (selectedRecipe) {
+        
+      }
+  }
+
+  const handleCloseModal = () =>{
+    selectedRecipe(null)
+  }
 
   const handleSearch = (e) => {
     const val = e.target.value.trim();

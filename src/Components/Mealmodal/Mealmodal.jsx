@@ -1,6 +1,7 @@
+import React from "react";
 import "./Mealmodal.css";
 
-const Mealmodal = () => {
+const Mealmodal = ({}) => {
   return (
     <div id="mealModal" className="modal">
       <div className="modal-content">
