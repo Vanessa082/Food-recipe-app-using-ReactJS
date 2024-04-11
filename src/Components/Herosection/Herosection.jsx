@@ -1,3 +1,6 @@
+import "./Herosection.css";
+import bg from "../../assets/images/bg.jpg";
+
 const Herosection = () => {
   return (
     <div id="hero-section">
@@ -12,7 +15,8 @@ const Herosection = () => {
 
         <section className="col2">
           <img
-            src="./assets/images/bg.jpg"
+            className="hero-image"
+            src={bg}
             alt="hero image"
             height="400"
             width="500"

@@ -1,8 +1,10 @@
+import "./Contactus.css";
+
 const Contactus = () => {
   return (
-    <div className="section" id="contactUs">
-      <div className="contactUs">
-        <h1>
+    <div className="section" id="contact-us">
+      <div className="contact-us">
+        <h1 className="contacth">
           Deliciousness to <br />
           your inbox
         </h1>
@@ -22,4 +24,4 @@ const Contactus = () => {
   );
 };
 
-export default Contactus
+export default Contactus;
