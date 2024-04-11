@@ -1,7 +1,11 @@
 import "./Herosection.css";
 import bg from "../../assets/images/bg.jpg";
+import { Search } from "./Search";
+import { useState } from "react";
 
-const Herosection = () => {
+function Herosection() {
+  const [showSearch, setShowSearch] = useState(false);
+
   return (
     <div id="hero-section">
       <div className="content-holder">
@@ -9,7 +13,7 @@ const Herosection = () => {
           <h1>It's Not Just Cooking, It's an Experience</h1>
 
           <div className="search">
-            <button className="searchbtn">Search</button>
+            <button className="searchbtn" onClick={() => setShowSearch(true)}>Search</button>
           </div>
         </div>
 
@@ -23,18 +27,8 @@ const Herosection = () => {
           />
         </section>
       </div>
-      <div className="overlay">
-        <div className="searchbar">
-          <input
-            type="text"
-            className="searchInput"
-            placeholder="Search recipes..."
-          />
-          <ul id="recipeList" className="search-result"></ul>
-        </div>
 
-        <button className="closeButton">close</button>
-      </div>
+     {showSearch ? <Search setShowSearch={setShowSearch} /> : null}
     </div>
   );
 };
