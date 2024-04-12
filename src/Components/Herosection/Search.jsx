@@ -4,7 +4,7 @@ import Mealmodal from "../Mealmodal/Mealmodal";
 export function Search({ setShowSearch }) {
   const [recipes, setSearchRecipe] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
-  const [mealInstructions, setMealInstruction] = useState(null)
+  // const [mealInstructions, setMealInstruction] = useState(null)
 
   const getRecipe = async (searchInput) => {
     const response = await fetch(
@@ -22,30 +22,30 @@ export function Search({ setShowSearch }) {
     const recipe = data.meals[0];
 
     setSelectedRecipe(recipe);
-    const instructions = recipe.strInstructions
+    // const instructions = recipe.strInstructions
 
     // console.log(instructions)
 
-    setMealInstruction(instructions)
+    // setMealInstruction(instructions)
   };
 
-  const displayIngredientsMeasurements = () => {
-    if (selectedRecipe) {
-      return (
-        <>
-          {" "}
-          {selectedRecipe.ingredients.map((ingredient, idx) => (
-            <div key={idx}>
-              <span>{ingredient} </span> -{" "}
-              <span> {selectedRecipe.measurements[idx]} </span>
-            </div>
-          ))}{" "}
-        </>
-      );
-    }
+  // const displayIngredientsMeasurements = () => {
+  //   if (selectedRecipe) {
+  //     return (
+  //       <>
+  //         {" "}
+  //         {selectedRecipe.ingredients.map((ingredient, idx) => (
+  //           <div key={idx}>
+  //             <span>{ingredient} </span> -{" "}
+  //             <span> {selectedRecipe.measurements[idx]} </span>
+  //           </div>
+  //         ))}{" "}
+  //       </>
+  //     );
+  //   }
 
-    return null;
-  };
+  //   return null;
+  // };
 
   const handleCloseModal = () => {
     setSelectedRecipe(null);
@@ -80,7 +80,10 @@ export function Search({ setShowSearch }) {
                   />
                 </div>
                 <div className="show-details-btn-holder">
-                  <button onClick={() => showDetails(recipe.idMeal)}>
+                  <button onClick={() => {
+                    console.log('clicked')
+                    showDetails(recipe.idMeal)
+                    }}>
                     Show Details
                   </button>
                 </div>
@@ -95,8 +98,6 @@ export function Search({ setShowSearch }) {
       {selectedRecipe && (
         <Mealmodal
           recipe={selectedRecipe}
-          displayIngredientsMeasurements={displayIngredientsMeasurements}
-          mealInstructions={mealInstructions}
           handleCloseModal={handleCloseModal}
         />
       )}
