@@ -1,8 +1,10 @@
 import { useState } from "react";
+import Mealmodal from "../Mealmodal/Mealmodal";
 
 export function Search({ setShowSearch }) {
   const [recipes, setSearchRecipe] = useState([]);
-  const [selectedRecipe, setSelectedRecipe] = useState(null)
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [mealInstructions, setMealInstruction] = useState(null)
 
   const getRecipe = async (searchInput) => {
     const response = await fetch(
@@ -11,31 +13,50 @@ export function Search({ setShowSearch }) {
     const data = await response.json();
     setSearchRecipe(data.meals || []);
   };
+
   const showDetails = async (mealId) => {
     const response = await fetch(
       `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
     );
     const data = await response.json();
     const recipe = data.meals[0];
-    
-    selectedRecipe(recipe)
+
+    setSelectedRecipe(recipe);
+    const instructions = recipe.strInstructions
+
+    // console.log(instructions)
+
+    setMealInstruction(instructions)
   };
 
   const displayIngredientsMeasurements = () => {
-      if (selectedRecipe) {
-        
-      }
-  }
+    if (selectedRecipe) {
+      return (
+        <>
+          {" "}
+          {selectedRecipe.ingredients.map((ingredient, idx) => (
+            <div key={idx}>
+              <span>{ingredient} </span> -{" "}
+              <span> {selectedRecipe.measurements[idx]} </span>
+            </div>
+          ))}{" "}
+        </>
+      );
+    }
 
-  const handleCloseModal = () =>{
-    selectedRecipe(null)
-  }
+    return null;
+  };
+
+  const handleCloseModal = () => {
+    setSelectedRecipe(null);
+  };
 
   const handleSearch = (e) => {
     const val = e.target.value.trim();
     if (!val) return;
     getRecipe(val);
   };
+
   return (
     <div className="overlay">
       <div className="searchbar">
@@ -70,6 +91,15 @@ export function Search({ setShowSearch }) {
           )}
         </ul>
       </div>
+
+      {selectedRecipe && (
+        <Mealmodal
+          recipe={selectedRecipe}
+          displayIngredientsMeasurements={displayIngredientsMeasurements}
+          mealInstructions={mealInstructions}
+          handleCloseModal={handleCloseModal}
+        />
+      )}
 
       <button
         className="closeButton close-button"
