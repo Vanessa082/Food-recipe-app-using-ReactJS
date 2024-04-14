@@ -21,7 +21,9 @@ const Mealmodal = ({ recipe, handleCloseModal }) => {
         <span className="close" onClick={handleCloseModal}>
           &times;
         </span>
-        <Addtofavorite />
+
+        <Addtofavorite recipe={recipe} />
+
         <h2 className="mealName">{recipe.strMeal}</h2>
         <div className="imgingredientsme">
           <img
