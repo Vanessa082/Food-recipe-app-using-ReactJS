@@ -1,0 +1,10 @@
+.detailbtn{
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  color: var(--primary-white);
+  background-color: #fe5722;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}

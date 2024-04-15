@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Addtofavorite.css";
 
 const Addtofavorite = ({ recipe }) => {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -51,7 +52,7 @@ const Addtofavorite = ({ recipe }) => {
 
   return (
     <>
-      <button onClick={handleFavorite}>
+      <button onClick={handleFavorite} className="favoritebtn">
         {isFavorite ? "remove from favorites" : "add to favorites"}
       </button>
     </>

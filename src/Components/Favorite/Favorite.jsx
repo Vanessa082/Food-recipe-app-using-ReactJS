@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-
+import "./Favorites.css";
 function Favorite() {
   const [favoriteMeals, setIsFavoriteMeals] = useState([]);
-  const [selectedRecipeDetail, setSelectedRecipeDetail] = useState(null)
+  const [selectedRecipeDetail, setSelectedRecipeDetail] = useState(null);
 
   const loadData = () => {
     const favoriteMeal = JSON.parse(localStorage.getItem("favorite")) || [];
@@ -19,19 +19,22 @@ function Favorite() {
     setSelectedRecipeDetail(recipe);
   };
 
-  const handleCloseDetailModal = () =>{
-    selectedRecipeDetail(null)
-  }
+  const handleCloseDetailModal = () => {
+    setSelectedRecipeDetail(null);
+  };
   return (
     <div className="favorites" id="favorites">
       <h4>Favorites</h4>
       <div className="mealArea">
         {favoriteMeals?.map((recipe) => {
           return (
-            <div key={recipe.idMeal}>
-              <h5> {recipe.strMeal} </h5>
+            <div key={recipe.idMeal} className="favorite">
+              {/* <button className="removebtn">Remove from Favorite</button> */}
+              <h4> {recipe.strMeal} </h4>
               <img src={recipe.strMealThumb} alt={recipe.strMealThumb} />
-              <button onClick={() => handleVeiwMealDetail(recipe)}>Veiw Details</button>
+              <button onClick={() => handleVeiwMealDetail(recipe)} className="viewdetalsbtn">
+                Veiw Details
+              </button>
             </div>
           );
         })}
@@ -39,10 +42,11 @@ function Favorite() {
 
       {selectedRecipeDetail && (
         <div className="modal">
-          <button onClick={handleCloseDetailModal}>Close</button>
+          <div className="modal-content">
+          <button onClick={handleCloseDetailModal} className="close">&times;</button>
           <h3> {selectedRecipeDetail.strMeal} </h3>
-          <li>Ingredients: {selectedRecipeDetail.strIngredienter} </li>
           <li>Instructions: {selectedRecipeDetail.strInstructions} </li>
+          </div>
         </div>
       )}
     </div>

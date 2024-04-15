@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Mealmodal from "../Mealmodal/Mealmodal";
+import "./search.css"
 
 export function Search({ setShowSearch }) {
   const [recipes, setSearchRecipe] = useState([]);
@@ -59,7 +60,7 @@ export function Search({ setShowSearch }) {
                   <button onClick={() => {
                     console.log('clicked')
                     showDetails(recipe.idMeal)
-                    }}>
+                    }} className="detailbtn">
                     Show Details
                   </button>
                 </div>

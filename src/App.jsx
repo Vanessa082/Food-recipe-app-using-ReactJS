@@ -6,20 +6,24 @@ import Favorite from "./Components/Favorite/Favorite";
 import Category from "./Components/Category/Category";
 import Contactus from "./Components/Contactus/Contactus";
 import Footer from "./Components/Footer/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import Mealmodal from "./Components/Mealmodal/Mealmodal";
 
 function App() {
   return (
     <>
-      <div>
+      <BrowserRouter>
         <Navbar />
-        <Herosection />
-        {/* <Mealmodal /> */}
-        <Favorite />
-        <Category />
-        <Contactus />
-        <Footer />
-      </div>
+        <Routes>
+          {/* <Mealmodal /> */};
+          <Route path="/" element={<Herosection />} />
+          <Route path="favorite" element={<Favorite />} />
+        </Routes>
+      </BrowserRouter>
+      {/* <Herosection /> */}
+      <Category />
+      <Contactus />
+      <Footer />
     </>
   );
 }

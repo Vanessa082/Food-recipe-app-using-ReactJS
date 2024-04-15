@@ -44,6 +44,17 @@
       }
     }
 
+    .add-recipe{
+      width: fit-content;
+      height: fit-content;
+      padding: 10px;
+      color: var(--primary-white);
+      background-color: #fe5722;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+
     @media screen and (max-width: 768px) {
       .nav-content {
         padding: 2rem;
