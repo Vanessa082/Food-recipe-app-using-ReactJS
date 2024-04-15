@@ -30,6 +30,7 @@ const Addtofavorite = ({ recipe }) => {
 
   const handleFavorite = () => {
     const { item, favorites } = getLocalData();
+    console.log(favorites);
 
     if (item) {
       removeFavorite(favorites);

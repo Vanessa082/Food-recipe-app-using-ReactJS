@@ -15,7 +15,7 @@ function App() {
         <Navbar />
         <Herosection />
         {/* <Mealmodal /> */}
-        {/* <Favorite /> */}
+        <Favorite />
         <Category />
         <Contactus />
         <Footer />
