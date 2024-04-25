@@ -33,6 +33,7 @@
       width: 90%;
       border: 0;
       cursor: pointer;
+      background-color: #fff;
 
       &:focus {
         outline: none;

@@ -1,7 +1,17 @@
+:root {
+  --primary-pink: #fff3f0;
+  --primary-white: #f2f2f2;
+  --primary-orange: #fe5722;
+  --primary-blue: #272d36;
+
+  --app-mx-width: min(100vw, 3000px);
+}
 .favorites {
   width: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #f2f2f2;
+  color: var(--primary-blue);
 
   .meal-area {
     display: flex;
@@ -56,6 +66,7 @@
 
 .pop-meal-area {
   display: flex;
+  background-color: #f2f2f2;
 
   .meal-area-figure {
     display: flex;
