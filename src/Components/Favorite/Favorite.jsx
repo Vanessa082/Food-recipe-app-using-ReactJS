@@ -6,7 +6,6 @@ function Favorite() {
 
   const loadData = () => {
     const favoriteMeal = JSON.parse(localStorage.getItem("favorite")) || [];
-
     setIsFavoriteMeals(favoriteMeal);
   };
 
@@ -15,37 +14,34 @@ function Favorite() {
   }, []);
 
   const handleVeiwMealDetail = (recipe) => {
-    console.log(recipe);
     setSelectedRecipeDetail(recipe);
   };
 
   const handleCloseDetailModal = () => {
     setSelectedRecipeDetail(null);
   };
+
   return (
-    <div className="favorites" id="favorites">
+    <div className="favorites" id="favorites" style={{ display: favoriteMeals.length === 0 ? 'none' : 'block' }}>
       <h4>Favorites</h4>
       <div className="mealArea">
-        {favoriteMeals?.map((recipe) => {
-          return (
-            <div key={recipe.idMeal} className="favorite">
-              {/* <button className="removebtn">Remove from Favorite</button> */}
-              <h4> {recipe.strMeal} </h4>
-              <img src={recipe.strMealThumb} alt={recipe.strMealThumb} />
-              <button onClick={() => handleVeiwMealDetail(recipe)} className="viewdetalsbtn">
-                Veiw Details
-              </button>
-            </div>
-          );
-        })}
+        {favoriteMeals.map((recipe) => (
+          <div key={recipe.idMeal} className="favorite">
+            <h4>{recipe.strMeal}</h4>
+            <img src={recipe.strMealThumb} alt={recipe.strMealThumb} />
+            <button onClick={() => handleVeiwMealDetail(recipe)} className="viewdetalsbtn">
+              View Details
+            </button>
+          </div>
+        ))}
       </div>
 
       {selectedRecipeDetail && (
         <div className="modal">
           <div className="modal-content">
-          <button onClick={handleCloseDetailModal} className="close">&times;</button>
-          <h3> {selectedRecipeDetail.strMeal} </h3>
-          <li>Instructions: {selectedRecipeDetail.strInstructions} </li>
+            <button onClick={handleCloseDetailModal} className="close">×</button>
+            <h3>{selectedRecipeDetail.strMeal}</h3>
+            <p>Instructions: {selectedRecipeDetail.strInstructions}</p>
           </div>
         </div>
       )}

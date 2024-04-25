@@ -7,6 +7,7 @@ import Category from "./Components/Category/Category";
 import Contactus from "./Components/Contactus/Contactus";
 import Footer from "./Components/Footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Element } from "react-scroll";
 // import Mealmodal from "./Components/Mealmodal/Mealmodal";
 
 function App() {
@@ -17,10 +18,13 @@ function App() {
         <Routes>
           {/* <Mealmodal /> */};
           <Route path="/" element={<Herosection />} />
-          <Route path="favorite" element={<Favorite />} />
         </Routes>
       </BrowserRouter>
-      {/* <Herosection /> */}
+
+      <Element name="favorites">
+        <Favorite />
+      </Element>
+      
       <Category />
       <Contactus />
       <Footer />

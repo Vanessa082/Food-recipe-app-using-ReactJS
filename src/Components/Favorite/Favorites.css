@@ -1,25 +1,34 @@
-.mealArea{
+:root {
+  --primary-pink: #fff3f0;
+  --primary-white: #f2f2f2;
+  --primary-orange: #fe5722;
+  --primary-blue: #272d36;
+
+  --app-mx-width: min(100vw, 3000px);
+}
+
+.mealArea {
   display: flex;
   justify-content: space-around;
   gap: 1rem;
   max-width: 90vw;
   flex-wrap: wrap;
 }
-.favorite{
+.favorite {
   display: flex;
   flex: 1 0 20%;
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
 
-  img{
+  img {
     object-fit: contain;
     max-width: 200px;
     max-height: 200px;
     border-radius: 10px;
   }
 }
-.viewdetalsbtn{
+.viewdetalsbtn {
   width: fit-content;
   height: fit-content;
   padding: 10px;
@@ -30,7 +39,7 @@
   border-radius: 5px;
 }
 
-.modal{
+.modal {
   position: fixed;
   z-index: 7;
   left: 0;
@@ -43,7 +52,7 @@
 
 .modal-content {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: space-between;
   gap: 10px;
   background-color: #fefefe;
@@ -88,4 +97,3 @@
     height: 900px;
   }
 }
-

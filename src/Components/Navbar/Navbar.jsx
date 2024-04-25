@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 import "./Navbar.css";
 
 function Navbar() {
@@ -17,7 +17,9 @@ function Navbar() {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link to="/favorite">Favorites</Link>
+            <Link to="favorites" smooth={true} duration={500}>
+              Favorites
+            </Link>
           </li>
         </ul>
         <button className="add-recipe">Add Recipe</button>
