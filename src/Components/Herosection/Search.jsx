@@ -98,8 +98,7 @@ export function Search({ setShowSearch }) {
           handleCloseModal={handleCloseModal}
         />
       )}
-
-      {/* Close button remains */}
+      
       <button
         className="closeButton close-button"
         onClick={() => setShowSearch(false)}
