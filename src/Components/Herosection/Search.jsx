@@ -1,10 +1,28 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Mealmodal from "../Mealmodal/Mealmodal";
-import "./search.css"
+import "./search.css";
 
 export function Search({ setShowSearch }) {
   const [recipes, setSearchRecipe] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const searchRef = useRef(null); // Reference to the search container
+
+  useEffect(() => {
+    // Event listener to close modal when clicking outside the search input and modal
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        // Check if clicked element is outside the search container
+        setShowSearch(false); // Close the search modal
+      }
+    };
+
+    // Add event listener to handle clicks outside the search container
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Clean up the event listener
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [setShowSearch]);
 
   const getRecipe = async (searchInput) => {
     const response = await fetch(
@@ -20,7 +38,6 @@ export function Search({ setShowSearch }) {
     );
     const data = await response.json();
     const recipe = data.meals[0];
-
     setSelectedRecipe(recipe);
   };
 
@@ -36,7 +53,7 @@ export function Search({ setShowSearch }) {
 
   return (
     <div className="overlay">
-      <div className="searchbar">
+      <div className="searchbar" ref={searchRef}> {/* Add ref to the search container */}
         <input
           type="text"
           className="searchInput search-input"
@@ -57,10 +74,13 @@ export function Search({ setShowSearch }) {
                   />
                 </div>
                 <div className="show-details-btn-holder">
-                  <button onClick={() => {
-                    console.log('clicked')
-                    showDetails(recipe.idMeal)
-                    }} className="detailbtn">
+                  <button
+                    onClick={() => {
+                      console.log("clicked");
+                      showDetails(recipe.idMeal);
+                    }}
+                    className="detailbtn"
+                  >
                     Show Details
                   </button>
                 </div>
@@ -79,6 +99,7 @@ export function Search({ setShowSearch }) {
         />
       )}
 
+      {/* Close button remains */}
       <button
         className="closeButton close-button"
         onClick={() => setShowSearch(false)}

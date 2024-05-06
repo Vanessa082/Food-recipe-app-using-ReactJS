@@ -60,6 +60,8 @@ img {
 }
 
 body {
+  width: 100vw;
+  background-color: aqua;
   font-family: Arial, sans-serif;
   height: fit-content;
 }

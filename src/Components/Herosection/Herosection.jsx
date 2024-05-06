@@ -17,7 +17,7 @@ function Herosection() {
           </div>
         </div>
 
-        <section className="col2">
+        <div className="col2">
           <img
             className="hero-image"
             src={bg}
@@ -25,7 +25,7 @@ function Herosection() {
             height="400"
             width="500"
           />
-        </section>
+        </div>
       </div>
 
      {showSearch ? <Search setShowSearch={setShowSearch} /> : null}
