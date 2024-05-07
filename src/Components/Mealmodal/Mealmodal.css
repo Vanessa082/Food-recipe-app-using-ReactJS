@@ -11,23 +11,24 @@
 
   .modal-content {
     display: flex;
-    flex-direction: column; 
-    justify-content: space-between;
-    gap: 10px;
+    flex-direction: column;
+    gap: 5px;
     background-color: #fefefe;
     margin: 0 auto;
-    padding: 20px;
+    /* padding: 20px; */
     border: 1px solid #888;
-    width: 80%;
+    width: 50%;
     font-family: "Playfair Display", serif;
     font-size: 14px;
     height: 600px;
     overflow-y: auto;
 
     .meal-image {
-      object-fit: cover;
-      max-width: 40%;
-      border-radius: 50%;
+      object-fit: contain;
+      width: 50%;
+      height: 40%;
+      /* max-width: 40%; */
+      /* border-radius: 50%; */
     }
 
     .close {
@@ -40,8 +41,7 @@
 
     .imgingredientsme {
       display: flex;
-      flex-direction: column;
-      justify-content: space-around;
+      flex-direction: row;
     }
 
     .ingredientsmeasurement {

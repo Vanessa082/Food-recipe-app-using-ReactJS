@@ -22,18 +22,16 @@ const Mealmodal = ({ recipe, handleCloseModal }) => {
           &times;
         </span>
 
-        <Addtofavorite recipe={recipe} />
-
-        <h2 className="mealName">{recipe.strMeal}</h2>
+        <h1 className="mealName">{recipe.strMeal}</h1>
         <div className="imgingredientsme">
           <img
-            className="mealImage"
+            className="meal-image"
             src={recipe.strMealThumb}
             alt={recipe.strMealThumb}
           />
           <div className="ingredientsmeasurement">
             <div className="ingredients">
-              <h3>Ingredients:</h3>
+              <h2>Ingredients and Measure</h2>
               <ul>
                 {ingredients.map((ingredient, index) => (
                   <li key={index}>
@@ -52,6 +50,7 @@ const Mealmodal = ({ recipe, handleCloseModal }) => {
             ))}
           </ol>
         </div>
+        <Addtofavorite recipe={recipe} />
       </div>
     </div>
   );

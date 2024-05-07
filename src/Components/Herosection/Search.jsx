@@ -6,12 +6,16 @@ export function Search({ setShowSearch }) {
   const [recipes, setSearchRecipe] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const searchRef = useRef(null); // Reference to the search container
+  const mealDetailsRef = useRef(null); // Reference to the meal details modal
 
   useEffect(() => {
     // Event listener to close modal when clicking outside the search input and modal
     const handleClickOutside = (event) => {
-      if (searchRef.current && !searchRef.current.contains(event.target)) {
-        // Check if clicked element is outside the search container
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target) &&
+        event.target.className === "overlay" // Check if clicked element is the overlay
+      ) {
         setShowSearch(false); // Close the search modal
       }
     };
@@ -53,8 +57,9 @@ export function Search({ setShowSearch }) {
 
   return (
     <div className="overlay">
-      <div className="searchbar" ref={searchRef}> {/* Add ref to the search container */}
+      <div className="searchbar" ref={searchRef}>
         <input
+          style={{ color: "#000" }}
           type="text"
           className="searchInput search-input"
           placeholder="Search recipes..."
@@ -75,10 +80,7 @@ export function Search({ setShowSearch }) {
                 </div>
                 <div className="show-details-btn-holder">
                   <button
-                    onClick={() => {
-                      console.log("clicked");
-                      showDetails(recipe.idMeal);
-                    }}
+                    onClick={() => showDetails(recipe.idMeal)}
                     className="detailbtn"
                   >
                     Show Details
@@ -94,11 +96,13 @@ export function Search({ setShowSearch }) {
 
       {selectedRecipe && (
         <Mealmodal
+          ref={mealDetailsRef} // Add ref to the meal details modal
           recipe={selectedRecipe}
           handleCloseModal={handleCloseModal}
         />
       )}
-      
+
+      {/* Close button remains */}
       <button
         className="closeButton close-button"
         onClick={() => setShowSearch(false)}
