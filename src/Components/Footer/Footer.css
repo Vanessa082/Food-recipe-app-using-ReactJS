@@ -1,0 +1,40 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  background: var(--primary-blue);
+  color: #b2b2b2;
+  padding: 30px 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+
+  ul {
+    list-style: none;
+    line-height: 30px;
+    font-size: 16px;
+
+    li {
+      cursor: pointer;
+    }
+  }
+
+  .footer-about {
+    width: 35%;
+  }
+
+  .copyright {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    border-top: 1px solid #b2b2b2;
+  }
+}

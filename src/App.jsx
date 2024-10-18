@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import Navbar from "./Components/Navbar/Navbar";
+import Herosection from "./Components/Herosection/Herosection";
+import Favorite from "./Components/Favorite/Favorite";
+import Category from "./Components/Category/Category";
+import Contactus from "./Components/Contactus/Contactus";
+import Footer from "./Components/Footer/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Element } from "react-scroll";
+// import Mealmodal from "./Components/Mealmodal/Mealmodal";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          {/* <Mealmodal /> */};
+          <Route path="/" element={<Herosection />} />
+        </Routes>
+      </BrowserRouter>
+
+      <Element name="favorites">
+        <Favorite />
+      </Element>
+      
+      <Category />
+      <Contactus />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
