@@ -44,7 +44,7 @@ The **Food Recipe App** is a web application built using **ReactJS** that allows
    ```bash
    npm install
    ```
-4. Create a `.env` file in the root directory and add your recipe API key (if applicable):
+4. Create a `.env` file in the root directory and add your recipe API key:
    ```
    REACT_APP_API_KEY=your-api-key
    ```
@@ -56,7 +56,4 @@ The **Food Recipe App** is a web application built using **ReactJS** that allows
 
 ## External API
 The app uses an external food recipe API to fetch recipe data.
-
-## License
-This project is licensed under the MIT License.
 
