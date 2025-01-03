@@ -1,7 +1,7 @@
 
 # Yummy Meal finder
 
-This template is for user to search meal view the details add meal to favorite remove meal
+This app is for user to search meal view the details add meal to favorite remove meal
 
 ## Deployement
 
